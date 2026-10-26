@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://bt3lpjw1e5vib"]
 
+[ext_resource type="Script" uid="uid://1d1h0wsng880" path="res://game_manager.gd" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://ymb7xn15vpjv" path="res://player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bhjqa1a276ijl" path="res://assets/sprites/world_tileset.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dljh441yki3yi" path="res://platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b7qyxmgswuwl5" path="res://coin.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d33yb14exi5af" path="res://killzone.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cpxdfmhtxdtc8" path="res://slime.tscn" id="6_p57ef"]
+[ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
+[ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://k8ob7xihnk8j" path="res://assets/music/time_for_adventure.mp3" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_yqjtg")
@@ -215,6 +219,24 @@ distance = -34.0
 
 [node name="Game" type="Node2D" unique_id=467821649]
 
+[node name="GameManager" type="Node" parent="." unique_id=1245156004]
+unique_name_in_owner = true
+script = ExtResource("1_gee14")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=307339845]
+offset_left = -171.0
+offset_top = -140.0
+offset_right = -96.0
+offset_bottom = -110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_0tnpc")
+theme_override_font_sizes/font_size = 8
+text = "You collected 
+X coins"
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="TileMap" type="TileMap" parent="." unique_id=928813422]
 tile_set = SubResource("TileSet_xrivr")
 format = 2
@@ -264,3 +286,19 @@ position = Vector2(-24, -120)
 
 [node name="Slime" parent="." unique_id=1404921944 instance=ExtResource("6_p57ef")]
 position = Vector2(137, 0)
+
+[node name="Labels" type="Node" parent="." unique_id=1168801126]
+
+[node name="Label" type="Label" parent="Labels" unique_id=963715976]
+offset_left = -160.0
+offset_top = -9.0
+offset_right = -83.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 8
+text = "Spacebar to 
+jump"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1176323147]
+stream = ExtResource("10_vtaks")
+autoplay = true
