@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bvw3m7smneepu"]
 
+[ext_resource type="Script" uid="uid://mkkqj1bd2ahr" path="res://scripts/menu.gd" id="1_con2f"]
 [ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://bhjqa1a276ijl" path="res://assets/sprites/world_tileset.png" id="2_vjb58"]
 
@@ -141,6 +142,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("1_con2f")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=32442573]
 tile_set = SubResource("TileSet_xrivr")
@@ -162,14 +164,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=166339205]
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=166339205]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_yqeox")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1040798071]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1040798071]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_yqeox")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=608224666]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_settings_pressed"]

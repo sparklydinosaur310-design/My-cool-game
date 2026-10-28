@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="My cool game"
-run/main_scene="uid://bt3lpjw1e5vib"
+run/main_scene="uid://bvw3m7smneepu"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
