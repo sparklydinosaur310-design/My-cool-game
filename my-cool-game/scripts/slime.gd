@@ -49,4 +49,14 @@ func die(player) -> void:
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(animated_sprite, "scale:y", 0.3, 0.25)
 	tween.tween_property(animated_sprite, "modulate:a", 0.0, 0.25)
-	tween.chain().tween_callback(queue_free)
+	await tween.finished
+	hide()
+	await get_tree().create_timer(5.0).timeout
+	dead = false
+	hits = 0
+	show()
+	set_process(true)
+	$Killzone.set_deferred("monitoring", true)
+	$Stompzone.set_deferred("monitoring", true)
+	animated_sprite.scale.y = 1.0
+	animated_sprite.modulate.a = 1.0

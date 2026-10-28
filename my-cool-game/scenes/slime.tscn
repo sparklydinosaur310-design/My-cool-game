@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(10, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(12, 5)
+
 [node name="Slime" type="Node2D" unique_id=1404921944]
 script = ExtResource("1_4l1t8")
 
@@ -54,6 +57,7 @@ frame = 2
 frame_progress = 0.7828421
 
 [node name="Killzone" parent="." unique_id=353483809 instance=ExtResource("2_4l1t8")]
+stompable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=2055786618]
 position = Vector2(0, -7.5)
@@ -66,3 +70,14 @@ target_position = Vector2(10, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=621270809]
 position = Vector2(0, -7)
 target_position = Vector2(-10, 0)
+
+[node name="Stompzone" type="Area2D" parent="." unique_id=1665148351]
+position = Vector2(-21, 10)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stompzone" unique_id=2065647714]
+position = Vector2(21, -24.5)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[connection signal="body_entered" from="Stompzone" to="." method="_on_stomp_zone_body_entered"]

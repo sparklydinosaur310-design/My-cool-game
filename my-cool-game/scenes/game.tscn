@@ -428,6 +428,17 @@ theme_override_font_sizes/font_size = 8
 text = "How did we
 get here?"
 
+[node name="Label8" type="Label" parent="Labels" unique_id=923211949]
+offset_left = 260.0
+offset_top = -56.0
+offset_right = 342.0
+offset_bottom = -33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 8
+text = "Their heads are
+bouncy though..."
+
 [node name="Label3" type="Label" parent="Labels" unique_id=95502370]
 offset_left = 2.0
 offset_top = -44.0
