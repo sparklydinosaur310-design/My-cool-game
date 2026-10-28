@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cpxdfmhtxdtc8" path="res://scenes/slime.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://ck8hu4ogp6fxa" path="res://scenes/pause_menu.tscn" id="10_vtaks"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
 distance = -34.0
@@ -502,3 +503,7 @@ position = Vector2(-335, -209)
 
 [node name="Slime3" parent="Slimes" unique_id=469266253 instance=ExtResource("6_p57ef")]
 position = Vector2(-94, -385)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1859722247]
+
+[node name="pausemenu" parent="CanvasLayer" unique_id=654910770 instance=ExtResource("10_vtaks")]

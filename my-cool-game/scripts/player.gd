@@ -5,6 +5,15 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -270.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var last_bounce_msec := -1000
+
+func bounce(strength: float) -> void:
+	velocity.y = strength
+	last_bounce_msec = Time.get_ticks_msec()
+
+func just_bounced() -> bool:
+	return Time.get_ticks_msec() - last_bounce_msec < 150
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
