@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ck8hu4ogp6fxa" path="res://scenes/pause_menu.tscn" id="10_vtaks"]
 [ext_resource type="Script" uid="uid://tl5vr4o6od8l" path="res://scripts/h_box_container.gd" id="11_dinhu"]
 [ext_resource type="Texture2D" uid="uid://dwkxx0cacubkr" path="res://assets/sprites/db84d775-14b7-492f-acfe-3fd3d2432ebd.png" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://bjvp0tt3ch8b8" path="res://assets/d604594c-d138-49ad-97f1-0b27dfdf9cc4.png" id="13_kvuet"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
 distance = -34.0
@@ -542,3 +543,15 @@ expand_mode = 2
 layout_mode = 2
 texture = ExtResource("11_kvpfn")
 expand_mode = 2
+
+[node name="PauseButton" type="Button" parent="CanvasLayer" unique_id=77225460]
+offset_left = 1021.0
+offset_top = 23.0
+offset_right = 1043.0
+offset_bottom = 45.0
+scale = Vector2(3, 3)
+icon = ExtResource("13_kvuet")
+icon_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="GameManager" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/pausemenu" method="_on_pause_button_pressed"]
