@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cumljnjceadkn"]
 
 [ext_resource type="Script" uid="uid://brqodty2w7ibh" path="res://scripts/level_complete.gd" id="1_hhoem"]
+[ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_2e2w2"]
+[ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="3_rovvh"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=997116260]
 script = ExtResource("1_hhoem")
@@ -27,14 +29,20 @@ size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="VBoxContainer" unique_id=1357192862]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2e2w2")
+theme_override_font_sizes/font_size = 24
 text = "Title"
 
 [node name="CoinsLabel" type="Label" parent="VBoxContainer" unique_id=1555619999]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2e2w2")
+theme_override_font_sizes/font_size = 24
 text = "Coins"
 
 [node name="NextButton" type="Button" parent="VBoxContainer" unique_id=279565203]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rovvh")
+theme_override_font_sizes/font_size = 24
 text = "Next"
 
 [connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
