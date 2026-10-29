@@ -5,6 +5,8 @@ func _ready() -> void:
 	print("pause menu ready")
 
 func _input(event: InputEvent) -> void:
+	if get_tree().paused and not visible:
+		return
 	if event is InputEventKey and event.pressed and not event.echo:
 		print("key:", event.keycode)
 		if event.keycode == KEY_ESCAPE:
