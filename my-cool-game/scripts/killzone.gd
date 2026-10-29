@@ -9,16 +9,13 @@ func _on_body_entered(body: Node2D) -> void:
 		await get_tree().physics_frame
 		if body.has_method("just_bounced") and body.just_bounced():
 			return
-	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
-	timer.start()
 	if not pit and body.get("invincible"):
 		return
 	Health.lose(1)
-	if stompable and Health.hearts > 0:
-		body.hurt()
-		return
 	Run.save_respawn(body)
+	Engine.time_scale = 0.5
+	body.get_node("CollisionShape2D").queue_free()
+	timer.start()
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0

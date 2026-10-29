@@ -211,7 +211,6 @@ text = "Best: 0"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResetScore" to="." method="_on_reset_score_pressed"]
 [connection signal="toggled" from="VBoxContainer/CheckpointToggle" to="." method="_on_checkpoint_toggle_toggled"]

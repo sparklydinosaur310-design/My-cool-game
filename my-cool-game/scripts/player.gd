@@ -19,7 +19,7 @@ var invincible := false
 var safe_history: Array[Vector2] = []
 var sample_timer := 0.0
 const SAMPLE_EVERY = 0.25
-const HISTORY_SIZE = 4
+const HISTORY_SIZE = 2
 
 func _ready() -> void:
 	if SaveData.checkpoints and Run.respawn_valid:
@@ -34,8 +34,8 @@ func get_respawn_point() -> Vector2:
 func protect(seconds: float) -> void:
 	invincible = true
 	var tween = create_tween().set_loops(int(seconds / 0.2))
-	tween.tween_property(animated_sprite, "modulate: a", 0.3, 0.1)
-	tween.tween_property(animated_sprite, "modulate: a", 1.0, 0.1)
+	tween.tween_property(animated_sprite, "modulate:a", 0.3, 0.1)
+	tween.tween_property(animated_sprite, "modulate:a", 1.0, 0.1)
 	await get_tree().create_timer(seconds).timeout
 	invincible = false
 	animated_sprite.modulate.a = 1.0
