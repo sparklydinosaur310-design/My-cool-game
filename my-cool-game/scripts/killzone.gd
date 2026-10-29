@@ -18,10 +18,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if stompable and Health.hearts > 0:
 		body.hurt()
 		return
+	Run.save_respawn(body)
 
 func _on_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	if Health.hearts <= 0:
+		Run.clear_respawn()
 		Health.reset()
 		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	else:

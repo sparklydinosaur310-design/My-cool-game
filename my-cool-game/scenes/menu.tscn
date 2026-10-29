@@ -188,6 +188,12 @@ theme_override_fonts/font = ExtResource("1_yqeox")
 theme_override_font_sizes/font_size = 32
 text = "Reset Best"
 
+[node name="CheckpointToggle" type="CheckButton" parent="VBoxContainer" unique_id=1964950731]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 32
+text = "Checkpoints"
+
 [node name="HighScoreLabel" type="Label" parent="." unique_id=360111430]
 layout_mode = 1
 anchors_preset = 5
@@ -205,6 +211,7 @@ text = "Best: 0"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="VBoxContainer/ResetScore" to="." method="_on_reset_score_pressed"]
+[connection signal="toggled" from="VBoxContainer/CheckpointToggle" to="." method="_on_checkpoint_toggle_toggled"]

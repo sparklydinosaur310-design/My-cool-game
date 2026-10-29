@@ -16,19 +16,36 @@ func just_bounced() -> bool:
 	return Time.get_ticks_msec() - last_bounce_msec < 150
 
 var invincible := false
+var safe_history: Array[Vector2] = []
+var sample_timer := 0.0
+const SAMPLE_EVERY = 0.25
+const HISTORY_SIZE = 4
 
-func hurt() -> void:
+func _ready() -> void:
+	if SaveData.checkpoints and Run.respawn_valid:
+		global_position = Run.respawn_pos
+		Run.respawn_valid = false
+		protect(2.0)
+	safe_history = [global_position]
+
+func get_respawn_point() -> Vector2:
+	return safe_history[0]
+
+func protect(seconds: float) -> void:
 	invincible = true
-	velocity.y = -180.0
-	var tween = create_tween().set_loops(6)
-	tween.tween_property(animated_sprite, "modulate:a", 0.3, 0.1)
-	tween.tween_property(animated_sprite, "modulate:a", 1.0, 0.1)
-	await get_tree().create_timer(1.2).timeout
+	var tween = create_tween().set_loops(int(seconds / 0.2))
+	tween.tween_property(animated_sprite, "modulate: a", 0.3, 0.1)
+	tween.tween_property(animated_sprite, "modulate: a", 1.0, 0.1)
+	await get_tree().create_timer(seconds).timeout
 	invincible = false
 	animated_sprite.modulate.a = 1.0
 
+func hurt() -> void:
+	velocity.y = -180
+	protect(1.2)
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Adds the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -65,3 +82,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+	if is_on_floor():
+		sample_timer += delta
+		if sample_timer >= SAMPLE_EVERY:
+			sample_timer = 0.0
+			safe_history.append(global_position)
+			if safe_history.size() > HISTORY_SIZE:
+				safe_history.pop_front()
