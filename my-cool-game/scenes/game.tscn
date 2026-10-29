@@ -10,6 +10,8 @@
 [ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://ck8hu4ogp6fxa" path="res://scenes/pause_menu.tscn" id="10_vtaks"]
+[ext_resource type="Script" uid="uid://tl5vr4o6od8l" path="res://scripts/h_box_container.gd" id="11_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dwkxx0cacubkr" path="res://assets/sprites/db84d775-14b7-492f-acfe-3fd3d2432ebd.png" id="11_kvpfn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xrivr"]
 distance = -34.0
@@ -518,3 +520,25 @@ position = Vector2(-94, -385)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1859722247]
 
 [node name="pausemenu" parent="CanvasLayer" unique_id=654910770 instance=ExtResource("10_vtaks")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=2032680238]
+offset_left = 106.0
+offset_top = 103.0
+offset_right = 387.0
+offset_bottom = 175.0
+script = ExtResource("11_dinhu")
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1045257595]
+layout_mode = 2
+texture = ExtResource("11_kvpfn")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=1855027053]
+layout_mode = 2
+texture = ExtResource("11_kvpfn")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HBoxContainer" unique_id=514349932]
+layout_mode = 2
+texture = ExtResource("11_kvpfn")
+expand_mode = 2

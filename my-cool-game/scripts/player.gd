@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -270.0
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var last_bounce_msec := -1000
@@ -13,6 +14,18 @@ func bounce(strength: float) -> void:
 
 func just_bounced() -> bool:
 	return Time.get_ticks_msec() - last_bounce_msec < 150
+
+var invincible := false
+
+func hurt() -> void:
+	invincible = true
+	velocity.y = -180.0
+	var tween = create_tween().set_loops(6)
+	tween.tween_property(animated_sprite, "modulate:a", 0.3, 0.1)
+	tween.tween_property(animated_sprite, "modulate:a", 1.0, 0.1)
+	await get_tree().create_timer(1.2).timeout
+	invincible = false
+	animated_sprite.modulate.a = 1.0
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
