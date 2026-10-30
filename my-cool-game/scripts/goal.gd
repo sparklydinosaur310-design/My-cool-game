@@ -10,4 +10,5 @@ func _on_body_entered(body: Node2D) -> void:
 	var gm = get_tree().get_first_node_in_group("game_manager")
 	Run.bank(gm.score)
 	SaveData.submit_score(Run.banked)
+	SaveData.unlock_level(mini(Run.level_index + 2, Run.LEVELS.size()))
 	get_tree().current_scene.add_child(LEVEL_COMPLETE.instantiate())

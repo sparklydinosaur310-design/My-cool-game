@@ -3,17 +3,20 @@ extends Node
 const SAVE_PATH = "user://save.cfg"
 var high_score: int = 0
 var checkpoints: bool = false
+var levels_unlocked: int = 1
 
 func _ready() -> void:
 	var config = ConfigFile.new()
 	if config.load(SAVE_PATH) == OK:
 		high_score = config.get_value("stats", "high_score", 0)
 		checkpoints = config.get_value("settings", "checkpoints", false)
+		levels_unlocked = config.get_value("progress", "levels_unlocked", 1)
 
 func save_all() -> void:
 	var config = ConfigFile.new()
 	config.set_value("stats", "high_score", high_score)
 	config.set_value("settings", "checkpoints", checkpoints)
+	config.set_value("progress", "levels_unlocked", levels_unlocked)
 	config.save(SAVE_PATH)
 
 func submit_score(score: int) -> void:
@@ -28,3 +31,8 @@ func reset_score() -> void:
 func set_checkpoints(value: bool) -> void:
 	checkpoints = value
 	save_all()
+
+func unlock_level(count: int) -> void:
+	if count > levels_unlocked:
+		levels_unlocked = count
+		save_all()

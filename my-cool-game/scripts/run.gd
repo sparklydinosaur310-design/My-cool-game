@@ -34,3 +34,8 @@ func save_respawn(player: Node) -> void:
 
 func clear_respawn() -> void:
 	respawn_valid = false
+
+func start_level(index: int) -> void:
+	new_run()
+	level_index = index
+	get_tree().change_scene_to_file(LEVELS[index])
