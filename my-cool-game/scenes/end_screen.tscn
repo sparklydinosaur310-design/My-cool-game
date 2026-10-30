@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="1_6e1uj"]
 [ext_resource type="Script" uid="uid://dejy58beecej8" path="res://scripts/end_screen.gd" id="1_jc7ji"]
+[ext_resource type="Script" uid="uid://08ovlqx1ogvj" path="res://scripts/stars.gd" id="2_87vmq"]
 [ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_jc7ji"]
 
 [node name="EndScreen" type="Control" unique_id=1032547130]
@@ -21,6 +22,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Stars" type="Control" parent="." unique_id=2048314631]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_87vmq")
 
 [node name="Credits" type="Label" parent="." unique_id=889002194]
 layout_mode = 1
