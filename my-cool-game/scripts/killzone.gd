@@ -12,6 +12,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if not pit and body.get("invincible"):
 		return
 	Health.lose(1)
+	Run.deaths += 1
 	Run.save_respawn(body)
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()

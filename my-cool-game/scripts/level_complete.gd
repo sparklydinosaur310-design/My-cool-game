@@ -10,12 +10,11 @@ func _ready() -> void:
 	coins_label.text = "Coins so far: " +str(Run.banked)
 	if not Run.has_next_level():
 		title.text = "You Win!"
-		next_button.text = "Main Menu"
-	get_tree().paused = true
+		next_button.text = "Continue"
 
 func _on_next_button_pressed() -> void:
 	get_tree().paused = false
 	if Run.has_next_level():
 		Run.next_level()
 	else:
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
