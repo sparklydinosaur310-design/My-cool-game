@@ -367,6 +367,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Killzone" parent="." unique_id=353483809 instance=ExtResource("4_igmy8")]
+pit = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=435377304]
 position = Vector2(11, 52)
