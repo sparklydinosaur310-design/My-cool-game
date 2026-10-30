@@ -485,6 +485,17 @@ theme_override_fonts/font = ExtResource("7_u5sy4")
 theme_override_font_sizes/font_size = 8
 text = "Some parkour?"
 
+[node name="Label9" type="Label" parent="Labels" unique_id=15526571]
+offset_left = -619.0
+offset_top = -680.0
+offset_right = -529.0
+offset_bottom = -656.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_u5sy4")
+theme_override_font_sizes/font_size = 8
+text = "Is this the
+end?"
+
 [node name="PLatforms" type="Node" parent="." unique_id=1715219562]
 
 [node name="Platform2" parent="PLatforms" unique_id=1280984356 instance=ExtResource("3_lnu2h")]
