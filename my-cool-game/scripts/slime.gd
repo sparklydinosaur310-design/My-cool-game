@@ -40,6 +40,8 @@ func flash() -> void:
 	create_tween().tween_property(animated_sprite, "modulate", Color.WHITE, 0.2)
 
 func die(player) -> void:
+	SaveData.add_slime()
+	Run.slimes_killed += 1
 	dead = true
 	set_process(false)
 	$Killzone.set_deferred("monitoring", false)

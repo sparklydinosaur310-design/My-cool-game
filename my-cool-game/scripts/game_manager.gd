@@ -11,6 +11,7 @@ func add_point():
 	score += 1
 	score_label.text = "You collected " + str(score) + " coins."
 	SaveData.submit_score(score)
+	SaveData.add_coin()
 	Run.total_pickups += 1
 
 func update_label() -> void:

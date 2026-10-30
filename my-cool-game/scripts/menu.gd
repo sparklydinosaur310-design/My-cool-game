@@ -19,6 +19,7 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	SaveData.save_all()
 	get_tree().quit()
 
 

@@ -357,7 +357,7 @@ autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." unique_id=1545353489 instance=ExtResource("3_guvtl")]
-position = Vector2(-117, 0)
+position = Vector2(-586, -617)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1321588776]
 position = Vector2(1, -10)
@@ -610,6 +610,7 @@ position = Vector2(360, -414)
 
 [node name="Sign" parent="." unique_id=1687515793 instance=ExtResource("15_guvtl")]
 position = Vector2(-630, -618)
+ends_game = true
 
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="GameManager" method="_on_pause_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseButton" to="CanvasLayer/pausemenu" method="_on_pause_button_pressed"]

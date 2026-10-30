@@ -12,6 +12,7 @@ var respawn_valid := false
 var total_pickups = 0
 var deaths = 0
 var start_msec = 0
+var slimes_killed = 0
 
 func new_run() -> void:
 	level_index = 0
@@ -21,6 +22,7 @@ func new_run() -> void:
 	total_pickups = 0
 	deaths = 0
 	start_msec = Time.get_ticks_msec()
+	slimes_killed = 0
 
 func bank(coins: int) -> void:
 	banked += coins

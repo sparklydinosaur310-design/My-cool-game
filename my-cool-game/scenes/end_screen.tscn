@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cngmtu5bbt5wn"]
 
-[ext_resource type="FontFile" uid="uid://ct4o260airba6" path="res://assets/fonts/PixelOperator8.ttf" id="1_6e1uj"]
 [ext_resource type="Script" uid="uid://dejy58beecej8" path="res://scripts/end_screen.gd" id="1_jc7ji"]
 [ext_resource type="Script" uid="uid://08ovlqx1ogvj" path="res://scripts/stars.gd" id="2_87vmq"]
 [ext_resource type="FontFile" uid="uid://dbcf76556ij8c" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_jc7ji"]
@@ -33,20 +32,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("2_87vmq")
 
-[node name="Credits" type="Label" parent="." unique_id=889002194]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 74.0
-offset_bottom = 125.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_6e1uj")
-theme_override_font_sizes/font_size = 24
-text = "My cool game
-Made by Salvador"
-horizontal_alignment = 1
-
-[node name="Stats" type="VBoxContainer" parent="." unique_id=515599091]
+[node name="Roll" type="VBoxContainer" parent="." unique_id=515599091]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,31 +46,64 @@ offset_bottom = 95.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="Stats" unique_id=1229692250]
+[node name="Title" type="Label" parent="Roll" unique_id=1229692250]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jc7ji")
 theme_override_font_sizes/font_size = 32
-text = "Thanks for Playing!"
+text = "My cool game"
+horizontal_alignment = 1
 
-[node name="CoinsLabel" type="Label" parent="Stats" unique_id=612873585]
+[node name="Credits" type="Label" parent="Roll" unique_id=958953925]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 24
+text = "Made by Salvador"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Roll" unique_id=1656807664]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="Thanks" type="Label" parent="Roll" unique_id=1868535411]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 32
+text = "Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="CoinsLabel" type="Label" parent="Roll" unique_id=612873585]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jc7ji")
 theme_override_font_sizes/font_size = 24
 
-[node name="DeathsLabel" type="Label" parent="Stats" unique_id=784835842]
+[node name="SlimesLabel" type="Label" parent="Roll" unique_id=1540101234]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jc7ji")
 theme_override_font_sizes/font_size = 24
 
-[node name="TimeLabel" type="Label" parent="Stats" unique_id=2077944026]
+[node name="DeathsLabel" type="Label" parent="Roll" unique_id=784835842]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jc7ji")
 theme_override_font_sizes/font_size = 24
 
-[node name="MenuButton" type="Button" parent="Stats" unique_id=938422105]
+[node name="TimeLabel" type="Label" parent="Roll" unique_id=2077944026]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 24
+
+[node name="BestLabel" type="Label" parent="Roll" unique_id=35755039]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_jc7ji")
+theme_override_font_sizes/font_size = 24
+
+[node name="Spacer2" type="Control" parent="Roll" unique_id=41342618]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="Roll" unique_id=938422105]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jc7ji")
 theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
-[connection signal="pressed" from="Stats/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Roll/MenuButton" to="." method="_on_menu_button_pressed"]
